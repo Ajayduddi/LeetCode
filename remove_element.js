@@ -2,15 +2,13 @@
 // The order of the elements may be changed.Then return the number of elements in nums which are not equal to val.
 
 var removeElement = function (nums, val) {
-    let arr = []
-    for (let [index,item] of nums.entries()) {
-        if (item == val) {
-            arr.push(item);
+    let i = 0;
+    while (i < nums.length) {
+        if (nums[i] === val) {
+            nums.splice(i, 1);
+        } else { 
+            i++;
         }
-    }
-
-    for (let i of arr) {
-        nums.splice(nums.indexOf(i), 1);
     }
 
     return nums;
@@ -20,4 +18,4 @@ var removeElement = function (nums, val) {
     // return arr;
 };
 
-console.log(removeElement([0, 1, 3, 0, 4, 2], 2));
+console.log(removeElement([0,1,2,2,3,0,4,2], 2));
