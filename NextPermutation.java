@@ -10,6 +10,7 @@ public class NextPermutation {
     }
 
     // https://youtu.be/JDOXKqF60RQ?si=VZ6BxRTaGjXoKR5f
+    // time complexity: O(n)
     static public void nextPermutation(int[] nums) {
 
         //find longest prefix from back side of the array
