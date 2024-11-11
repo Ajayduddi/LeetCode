@@ -16,24 +16,43 @@ public class HappyNumber {
     }
     
     static public boolean isHappy(int n) {
-        Map<Integer,Boolean> hash = new HashMap<>();
+        Map<Integer, Boolean> hash = new HashMap<>();
 
-        hash.put(n,true);
+        hash.put(n, true);
         int sum = happy(n);
-        while(true){
-            if(sum == 1){
+        while (true) {
+            if (sum == 1) {
                 return true;
             }
-            else if(!hash.containsKey(sum)){
-                hash.put(sum,true);
+            else if (!hash.containsKey(sum)) {
+                hash.put(sum, true);
                 sum = happy(sum);
             }
-            else{
+            else {
                 break;
             }
         }
 
         return false;
+    }
+    
+    /*
+     * using fast and slow pointer method
+     */
+    static public boolean isHappy_list(int n) {
+        int fast = n, slow = n;
+        
+        do{
+            slow = happy(slow);
+            fast = happy(happy(fast));
+        } while (slow != fast);
+        
+        if(slow == 1){
+            return true;
+        }else{
+            return false;
+        }
+
     }
 
     static public int happy(int n){

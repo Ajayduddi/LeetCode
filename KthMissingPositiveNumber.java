@@ -24,7 +24,7 @@ public class KthMissingPositiveNumber {
     static public int findKthPositive(int[] arr, int k) {
         int start = 0;
         int end = arr.length -1;
-        ArrayList<Integer> newa = new ArrayList(10);
+        ArrayList<Integer> newa = new ArrayList<>(10);
 
         while(start<end){
             int mid = start+(end-start)/2;
